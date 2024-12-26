@@ -6,8 +6,18 @@
     filename="background-dark.jpg"
     packingFormat="jpg"
   />
-  <bitmap id="HourHandle" filename="hour-handle.png" packingFormat="png" />
-  <bitmap id="MinuteHandle" filename="minute-handle.png" packingFormat="png" />
+  <bitmap
+    id="HourHandle"
+    filename="hour-handle.png"
+    packingFormat="png"
+    dithering="none"
+  />
+  <bitmap
+    id="MinuteHandle"
+    filename="minute-handle.png"
+    packingFormat="png"
+    dithering="none"
+  />
   <bitmap
     id="HourHandleDark"
     filename="hour-handle-dark.png"
@@ -18,6 +28,11 @@
     filename="minute-handle-dark.png"
     packingFormat="png"
   />
-  <bitmap id="SecondHandle" filename="second-handle.png" packingFormat="png" />
+  <bitmap
+    id="SecondHandle"
+    filename="second-handle.png"
+    packingFormat="png"
+    dithering="none"
+  />
   <bitmap id="Metal" filename="metal.png" packingFormat="png" />
 </drawables>
