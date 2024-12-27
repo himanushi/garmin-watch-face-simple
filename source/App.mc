@@ -12,7 +12,7 @@ class App extends Application.AppBase {
   function onStop(state as Dictionary?) as Void {}
 
   function getInitialView() as [Views] or [Views, InputDelegates] {
-    return [new View()];
+    return [new $.View()];
   }
 }
 
