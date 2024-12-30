@@ -15,13 +15,13 @@ class View extends WatchUi.WatchFace {
 
   function onShow() as Void {}
 
+  function onHide() as Void {}
+
   function onUpdate(dc as Dc) as Void {
     dc.clear();
 
     display.updateTime(dc, isAwake);
   }
-
-  function onHide() as Void {}
 
   function onEnterSleep() as Void {
     isAwake = false;
