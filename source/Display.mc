@@ -5,12 +5,18 @@ import Toybox.WatchUi;
 import Toybox.Math;
 
 class Display {
-  function updateTime(dc as Dc, isAwake as Boolean) as Void {
-    var widthRate = dc.getWidth() / 454.0;
-    var heightRate = dc.getHeight() / 454.0;
-    var centerX = 20.0;
-    var centerY = 25.0;
+  private var widthRate = 1.0;
+  private var heightRate = 1.0;
+  var centerX = 20.0;
+  var centerY = 25.0;
 
+  function initialize() {
+    var settings = System.getDeviceSettings();
+    widthRate = settings.screenHeight / 454.0;
+    heightRate = settings.screenHeight / 454.0;
+  }
+
+  function updateMinuteTime(dc as Dc, isAwake as Boolean) as Void {
     var clockTime = System.getClockTime();
 
     var backend =
@@ -43,9 +49,13 @@ class Display {
     xform.rotate((minute * Math.PI) / 30.0 + Math.PI);
     xform.translate(-centerX, -centerY);
     dc.drawBitmap2(0, 0, hand, { :transform => xform });
+  }
+
+  function updateSecondTime(dc as Dc, isAwake as Boolean) as Void {
+    var clockTime = System.getClockTime();
 
     if (isAwake) {
-      hand =
+      var hand =
         WatchUi.loadResource(Rez.Drawables.SecondHandle) as
         WatchUi.BitmapResource;
       var xform2 = new AffineTransform();
@@ -58,7 +68,7 @@ class Display {
 
       var metal =
         WatchUi.loadResource(Rez.Drawables.Metal) as WatchUi.BitmapResource;
-      xform = new AffineTransform();
+      var xform = new AffineTransform();
       xform.scale(widthRate, heightRate);
       dc.drawBitmap2(0, 0, metal, { :transform => xform });
     }

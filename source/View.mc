@@ -20,7 +20,8 @@ class View extends WatchUi.WatchFace {
   function onUpdate(dc as Dc) as Void {
     dc.clear();
 
-    display.updateTime(dc, isAwake);
+    display.updateMinuteTime(dc, isAwake);
+    display.updateSecondTime(dc, isAwake);
   }
 
   function onEnterSleep() as Void {
