@@ -7,10 +7,6 @@ class App extends Application.AppBase {
     AppBase.initialize();
   }
 
-  function onStart(state as Dictionary?) as Void {}
-
-  function onStop(state as Dictionary?) as Void {}
-
   function getInitialView() as [Views] or [Views, InputDelegates] {
     return [new $.View()];
   }
