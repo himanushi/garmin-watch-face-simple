@@ -12,7 +12,7 @@ class DisplayData {
   function initialize() {}
 
   function updateData1(dc as Dc, isAwake as Boolean) as Void {
-    drawBatteryMeter(dc, 207.0, 202.0, 50.0, 20.0);
+    drawBatteryMeter(dc, 207.0, 100.0, 50.0, 20.0);
   }
 
   // ref: https://github.com/warmsound/crystal-face/blob/master/source/CrystalView.mc#L35
