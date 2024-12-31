@@ -4,11 +4,11 @@ import Toybox.System;
 import Toybox.WatchUi;
 import Toybox.Math;
 
-class Display {
+class DisplayTime {
   private var widthRate = 1.0;
   private var heightRate = 1.0;
-  var centerX = 20.0;
-  var centerY = 25.0;
+  private const centerX = 20.0;
+  private const centerY = 25.0;
 
   function initialize() {
     var settings = System.getDeviceSettings();

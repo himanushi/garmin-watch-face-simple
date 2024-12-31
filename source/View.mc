@@ -5,7 +5,7 @@ import Toybox.WatchUi;
 
 class View extends WatchUi.WatchFace {
   var isAwake = true;
-  var display = new Display();
+  var displayTime = new DisplayTime();
 
   function initialize() {
     WatchFace.initialize();
@@ -20,8 +20,8 @@ class View extends WatchUi.WatchFace {
   function onUpdate(dc as Dc) as Void {
     dc.clear();
 
-    display.updateMinuteTime(dc, isAwake);
-    display.updateSecondTime(dc, isAwake);
+    displayTime.updateMinuteTime(dc, isAwake);
+    displayTime.updateSecondTime(dc, isAwake);
   }
 
   function onEnterSleep() as Void {
