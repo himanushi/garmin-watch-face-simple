@@ -12,12 +12,12 @@ class DisplayData {
   function initialize() {}
 
   function updateData1(dc as Dc, isAwake as Boolean) as Void {
-    drawBatteryMeter(dc, 207.0, 100.0, 50.0, 20.0);
+    drawBatteryIcon(dc, 230.0, 120.0, 50.0, 20.0);
   }
 
   // ref: https://github.com/warmsound/crystal-face/blob/master/source/CrystalView.mc#L35
-  function drawBatteryMeter(dc, x, y, width, height) {
-    dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
+  function drawBatteryIcon(dc, x, y, width, height) {
+    dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
     dc.setPenWidth(2);
     dc.drawRoundedRectangle(
       x - width / 2 + 1,
@@ -35,18 +35,6 @@ class DisplayData {
     );
 
     var batteryLevel = Math.floor(System.getSystemStats().battery);
-
-    var fillColour;
-    if (batteryLevel <= 10) {
-      fillColour = Graphics.COLOR_RED;
-    } else if (batteryLevel <= 20) {
-      fillColour = Graphics.COLOR_YELLOW;
-    } else {
-      fillColour = Graphics.COLOR_GREEN;
-    }
-
-    dc.setColor(fillColour, Graphics.COLOR_TRANSPARENT);
-
     var lineWidthPlusMargin = 2 + BATTERY_MARGIN;
     var fillWidth = width - 2 * lineWidthPlusMargin;
     dc.fillRectangle(
