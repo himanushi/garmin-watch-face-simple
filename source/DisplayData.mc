@@ -3,6 +3,8 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 import Toybox.Math;
+import Toybox.Time.Gregorian;
+import Toybox.Time;
 
 const SCREEN_MULTIPLIER = System.getDeviceSettings().screenWidth < 360 ? 1 : 2;
 const BATTERY_HEAD_HEIGHT = 4 * SCREEN_MULTIPLIER;
@@ -12,12 +14,29 @@ class DisplayData {
   function initialize() {}
 
   function updateData1(dc as Dc, isAwake as Boolean) as Void {
-    drawBatteryIcon(dc, 230.0, 120.0, 50.0, 20.0);
-    drawBatteryText(dc, 240.0, 140.0, 50.0, 20.0);
+    // drawBatteryIcon(dc, 230.0, 120.0, 50.0, 20.0);
+    // drawBatteryText(dc, 240.0, 140.0, 50.0, 20.0);
+    drawDate(dc, 240.0, 140.0, 50.0, 20.0);
+  }
+
+  function drawDate(dc, x, y, width, height) {
+    var info = Gregorian.info(Time.now(), Time.FORMAT_LONG);
+    var dateStr = Lang.format("$1$ $2$ $3$", [
+      info.day_of_week,
+      info.month,
+      info.day
+    ]);
+    dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
+    dc.drawText(
+      x,
+      y,
+      Graphics.FONT_SMALL,
+      dateStr,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
   }
 
   function drawBatteryText(dc, x, y, width, height) {
-    var settings = System.getSystemStats();
     dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
     dc.drawText(
       x,
