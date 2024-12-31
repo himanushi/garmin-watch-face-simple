@@ -35,8 +35,10 @@ class View extends WatchUi.WatchFace {
     dc.drawBitmap2(0, 0, backend, { :transform => xform });
 
     displayData.updateData1(dc, isAwake);
-    displayTime.updateMinuteTime(dc, isAwake);
-    displayTime.updateSecondTime(dc, isAwake);
+    displayTime.updateMinuteTime(dc);
+    if (isAwake) {
+      displayTime.updateSecondTime(dc);
+    }
   }
 
   function onEnterSleep() as Void {
