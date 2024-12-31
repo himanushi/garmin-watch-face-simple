@@ -8,16 +8,8 @@ class DisplayTime {
   private const centerX = 20.0;
   private const centerY = 25.0;
 
-  function updateMinuteTime(dc as Dc, isAwake as Boolean) as Void {
+  function updateMinuteTime(dc as Dc) as Void {
     var clockTime = System.getClockTime();
-
-    // var backend =
-    //   WatchUi.loadResource(
-    //     isAwake ? Rez.Drawables.Background : Rez.Drawables.BackgroundDark
-    //   ) as WatchUi.BitmapResource;
-    // var xform = new AffineTransform();
-    // xform.scale(Const.widthRate, Const.heightRate);
-    // dc.drawBitmap2(0, 0, backend, { :transform => xform });
 
     var hand =
       WatchUi.loadResource(Rez.Drawables.HourHandle) as WatchUi.BitmapResource;
@@ -43,26 +35,24 @@ class DisplayTime {
     dc.drawBitmap2(0, 0, hand, { :transform => xform });
   }
 
-  function updateSecondTime(dc as Dc, isAwake as Boolean) as Void {
+  function updateSecondTime(dc as Dc) as Void {
     var clockTime = System.getClockTime();
 
-    if (isAwake) {
-      var hand =
-        WatchUi.loadResource(Rez.Drawables.SecondHandle) as
-        WatchUi.BitmapResource;
-      var xform2 = new AffineTransform();
-      xform2.scale(Const.widthRate, Const.heightRate);
-      xform2.translate(207.0 + centerX, 202.0 + centerY);
-      var second = clockTime.sec;
-      xform2.rotate((second * Math.PI) / 30.0 + Math.PI);
-      xform2.translate(-centerX, -centerY);
-      dc.drawBitmap2(0, 0, hand, { :transform => xform2 });
+    var hand =
+      WatchUi.loadResource(Rez.Drawables.SecondHandle) as
+      WatchUi.BitmapResource;
+    var xform2 = new AffineTransform();
+    xform2.scale(Const.widthRate, Const.heightRate);
+    xform2.translate(207.0 + centerX, 202.0 + centerY);
+    var second = clockTime.sec;
+    xform2.rotate((second * Math.PI) / 30.0 + Math.PI);
+    xform2.translate(-centerX, -centerY);
+    dc.drawBitmap2(0, 0, hand, { :transform => xform2 });
 
-      var metal =
-        WatchUi.loadResource(Rez.Drawables.Metal) as WatchUi.BitmapResource;
-      var xform = new AffineTransform();
-      xform.scale(Const.widthRate, Const.heightRate);
-      dc.drawBitmap2(0, 0, metal, { :transform => xform });
-    }
+    var metal =
+      WatchUi.loadResource(Rez.Drawables.Metal) as WatchUi.BitmapResource;
+    var xform = new AffineTransform();
+    xform.scale(Const.widthRate, Const.heightRate);
+    dc.drawBitmap2(0, 0, metal, { :transform => xform });
   }
 }
