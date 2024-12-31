@@ -13,6 +13,19 @@ class DisplayData {
 
   function updateData1(dc as Dc, isAwake as Boolean) as Void {
     drawBatteryIcon(dc, 230.0, 120.0, 50.0, 20.0);
+    drawBatteryText(dc, 240.0, 140.0, 50.0, 20.0);
+  }
+
+  function drawBatteryText(dc, x, y, width, height) {
+    var settings = System.getSystemStats();
+    dc.setColor(0x000000, Graphics.COLOR_TRANSPARENT);
+    dc.drawText(
+      x,
+      y,
+      Graphics.FONT_SMALL,
+      (System.getSystemStats().battery + 0.5).toNumber().toString() + "%",
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
   }
 
   // ref: https://github.com/warmsound/crystal-face/blob/master/source/CrystalView.mc#L35
