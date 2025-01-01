@@ -4,10 +4,10 @@ import Toybox.System;
 import Toybox.WatchUi;
 import Toybox.Math;
 
-class DisplayTime {
-  private const centerX = 20.0;
-  private const centerY = 25.0;
+const centerX = 20.0;
+const centerY = 25.0;
 
+module DisplayTime {
   function updateMinuteTime(dc as Dc) as Void {
     var clockTime = System.getClockTime();
 

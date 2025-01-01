@@ -5,8 +5,6 @@ import Toybox.WatchUi;
 
 class View extends WatchUi.WatchFace {
   var isAwake = true;
-  var displayTime = new DisplayTime();
-  var displayData = new DisplayData();
 
   function initialize() {
     WatchFace.initialize();
@@ -34,10 +32,10 @@ class View extends WatchUi.WatchFace {
     xform.scale(Const.widthRate, Const.heightRate);
     dc.drawBitmap2(0, 0, backend, { :transform => xform });
 
-    displayData.updateData1(dc, isAwake);
-    displayTime.updateMinuteTime(dc);
+    DisplayData.updateData1(dc, isAwake);
+    DisplayTime.updateMinuteTime(dc);
     if (isAwake) {
-      displayTime.updateSecondTime(dc);
+      DisplayTime.updateSecondTime(dc);
     }
   }
 
