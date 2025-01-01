@@ -1,0 +1,5 @@
+<resources>
+  <properties>
+    <property id="data_field1" type="string">none</property>
+  </properties>
+</resources>
