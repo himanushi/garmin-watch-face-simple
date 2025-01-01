@@ -32,7 +32,8 @@ class View extends WatchUi.WatchFace {
     xform.scale(Const.widthRate, Const.heightRate);
     dc.drawBitmap2(0, 0, backend, { :transform => xform });
 
-    DisplayData.updateData1(dc, isAwake);
+    Display.updateData1(dc);
+    // DisplayData.updateData1(dc, isAwake);
     DisplayTime.updateMinuteTime(dc);
     if (isAwake) {
       DisplayTime.updateSecondTime(dc);
