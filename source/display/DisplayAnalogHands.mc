@@ -7,7 +7,7 @@ import Toybox.Math;
 const centerX = 20.0;
 const centerY = 25.0;
 
-module DisplayTime {
+module DisplayAnalogHands {
   function updateMinuteTime(dc as Dc) as Void {
     var clockTime = System.getClockTime();
 
