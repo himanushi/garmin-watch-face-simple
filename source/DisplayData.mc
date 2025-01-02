@@ -6,12 +6,11 @@ import Toybox.Math;
 import Toybox.Time.Gregorian;
 import Toybox.Time;
 
-module DisplayData {
-  const SCREEN_MULTIPLIER =
-    System.getDeviceSettings().screenWidth < 360 ? 1 : 2;
-  const BATTERY_HEAD_HEIGHT = 4 * SCREEN_MULTIPLIER;
-  const BATTERY_MARGIN = SCREEN_MULTIPLIER;
+const SCREEN_MULTIPLIER = System.getDeviceSettings().screenWidth < 360 ? 1 : 2;
+const BATTERY_HEAD_HEIGHT = 4 * SCREEN_MULTIPLIER;
+const BATTERY_MARGIN = SCREEN_MULTIPLIER;
 
+module DisplayData {
   function updateData1(dc as Dc) as Void {
     // drawBatteryIcon(dc, 230.0, 120.0, 50.0, 20.0);
     // drawBatteryText(dc, 240.0, 140.0, 50.0, 20.0);
