@@ -14,7 +14,7 @@ module DisplayTime {
     var hand =
       WatchUi.loadResource(Rez.Drawables.HourHandle) as WatchUi.BitmapResource;
     var xform = new AffineTransform();
-    xform.scale(Const.widthRate, Const.heightRate);
+    xform.scale(widthRate, heightRate);
     xform.translate(207.0 + centerX, 202.0 + centerY);
     var hour = clockTime.hour % 12;
     var minute = clockTime.min;
@@ -27,7 +27,7 @@ module DisplayTime {
       WatchUi.loadResource(Rez.Drawables.MinuteHandle) as
       WatchUi.BitmapResource;
     xform = new AffineTransform();
-    xform.scale(Const.widthRate, Const.heightRate);
+    xform.scale(widthRate, heightRate);
     xform.translate(207.0 + centerX, 202.0 + centerY);
     minute = clockTime.min;
     xform.rotate((minute * Math.PI) / 30.0 + Math.PI);
@@ -42,7 +42,7 @@ module DisplayTime {
       WatchUi.loadResource(Rez.Drawables.SecondHandle) as
       WatchUi.BitmapResource;
     var xform2 = new AffineTransform();
-    xform2.scale(Const.widthRate, Const.heightRate);
+    xform2.scale(widthRate, heightRate);
     xform2.translate(207.0 + centerX, 202.0 + centerY);
     var second = clockTime.sec;
     xform2.rotate((second * Math.PI) / 30.0 + Math.PI);
@@ -52,7 +52,7 @@ module DisplayTime {
     var metal =
       WatchUi.loadResource(Rez.Drawables.Metal) as WatchUi.BitmapResource;
     var xform = new AffineTransform();
-    xform.scale(Const.widthRate, Const.heightRate);
+    xform.scale(widthRate, heightRate);
     dc.drawBitmap2(0, 0, metal, { :transform => xform });
   }
 }

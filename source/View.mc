@@ -29,7 +29,7 @@ class View extends WatchUi.WatchFace {
         isAwake ? Rez.Drawables.Background : Rez.Drawables.BackgroundDark
       ) as WatchUi.BitmapResource;
     var xform = new AffineTransform();
-    xform.scale(Const.widthRate, Const.heightRate);
+    xform.scale(widthRate, heightRate);
     dc.drawBitmap2(0, 0, backend, { :transform => xform });
 
     Display.updateData1(dc);
