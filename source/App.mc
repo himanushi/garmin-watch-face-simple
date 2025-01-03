@@ -10,6 +10,10 @@ class App extends Application.AppBase {
   function getInitialView() as [Views] or [Views, InputDelegates] {
     return [new $.View()];
   }
+
+  function getSettingsView() as [Views] or [Views, InputDelegates] or Null {
+    return [new $.SettingsView(), new $.SettingsDelegate()];
+  }
 }
 
 function getApp() as App {
