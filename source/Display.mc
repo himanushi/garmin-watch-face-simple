@@ -4,12 +4,13 @@ import Toybox.Application.Properties;
 
 const DISPLAY_METHODS = {
   "date" => [DisplayDate, :drawDate],
-  "battery" => [DisplayBattery, :drawBatteryIcon]
+  "battery" => [DisplayBattery, :drawBatteryIcon],
+  "weather" => [DisplayWeather, :drawWeather]
 };
 
 module Display {
   function updateData1(dc as Dc) as Void {
-    Properties.setValue("data_field1", "battery");
+    Properties.setValue("data_field1", "weather");
 
     var prop = Properties.getValue("data_field1");
     var method = new Lang.Method(
